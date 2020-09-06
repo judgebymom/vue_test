@@ -6,7 +6,7 @@
 <router-link to="main.vue"><button>点我到第二个页面</button></router-link>
   </div>
 </template>
-
+123
 <script>
 export default {
   name: 'HelloWorld',
