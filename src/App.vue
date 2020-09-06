@@ -1,13 +1,21 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+    22
+    <MyContent :MyContent="msg"></MyContent>
+    <MyHeader></MyHeader>
+    <MyBottom></MyBottom>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      msg:'我是hello，world'
+    }
+  }
 }
 </script>
 
