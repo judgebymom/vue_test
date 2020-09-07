@@ -1,21 +1,62 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    22
-    <MyContent :MyContent="msg"></MyContent>
-    <MyHeader></MyHeader>
-    <MyBottom></MyBottom>
+<button id=btn1 @click="testAxios()"> 点击查询</button>
+
+<el-table :data="goodsList" border>
+      <el-table-column
+        prop="name"
+        label="名称"
+        width="180">
+      </el-table-column>
+
+      <el-table-column
+        prop="price"
+        label="价格"
+        width="180">
+      </el-table-column>
+
+      <el-table-column
+        prop="salePoint"
+        label="卖点"
+        width="180">
+      </el-table-column>
+
+      <el-table-column
+        prop="updateBy"
+        label="修改人"
+        width="180">
+      </el-table-column>
+</el-table>
   </div>
 </template>
 
 <script>
+import Httpservice from '@/services/HttpService'
 export default {
-  name: 'App',
   data () {
-    return {
-      msg:'我是hello，world'
+      return {
+        http: Httpservice.getAxios,
+        pageNum:1,
+        pageSize:2,
+        goodsList:[]
+      }
+    },
+    methods: {
+          testAxios(){
+          let param={
+            pageNum:this.pageNum,
+            pageSize:this.pageSize,
+
+          }
+          this.http.get('/product/selectAll',{params:param}).then((response)=>{
+            console.log(response);
+
+            this.goodsList=response.data.rows
+          })
+        }
     }
-  }
+  
 }
 </script>
 

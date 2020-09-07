@@ -3,14 +3,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import header from './components/header'
-import content from './components/content'
-import bottom from './components/bottom'
+import ElementUI from 'element-ui'
+import axios from 'axios'
 
-Vue.component('MyHeader', header); 
-Vue.component('MyContent', content); 
-Vue.component('MyBottom', bottom);   
 
+
+Vue.component('axios', axios); 
+Vue.use(ElementUI)
 
 
 
